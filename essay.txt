@@ -1,1 +1,7 @@
 This is my essay about how developers deal with stress and anxious during the development.
+
+In today world, we developers have to deal with so mamy important problems such as error in application, anxiety, depression, uncertainty etc.
+ This is why we tend to chat with other fellow developers and drink a coffee and listening a music is help us to overcome those problems.
+
+
+This is original file
