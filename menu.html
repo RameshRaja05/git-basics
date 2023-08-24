@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu bar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        .icon-bar{
-            background-color: #555;
-            width:100%;
-            display: flex;
-            flex-direction: row;
+        section{
+            display: inline-block;
+            cursor: pointer;
         }
-        .icon-bar a{
-            text-align: center;
-            padding: 16px;
-            width: 20%;
-            transition: all 0.3s ease-in-out;
-            color: white;
-            font-size: 36px;
-        }
-        .icon-bar a:hover{
-           background-color: #000;
-        }
-        .active{
-            background-color: #04AA6D;
-        }
+       .change .bar:nth-of-type(1){
+        transform: translate(0,11px) rotate(-45deg);
+       }
+       .change .bar:nth-of-type(2){
+        opacity: 0;
+       }
+       .change .bar:nth-of-type(3){
+        transform: translate(0,-11px) rotate(45deg);
+       }
+      .icon-bar {
+        background-color: #555;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .icon-bar a {
+        text-align: center;
+        padding: 16px;
+        width: 20%;
+        transition: all 0.3s ease-in-out;
+        color: white;
+        font-size: 36px;
+      }
+      .icon-bar a:hover {
+        background-color: #000;
+      }
+      .active {
+        background-color: #04aa6d;
+      }
+      .bar {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+        display: block;
+        transition: 0.4s;
+      }
+      .hide {
+        display: none;
+      }
     </style>
-</head>
-<body>
-   <div class="icon-bar">
-    <a href="#" class="active"><i class="fa fa-home"></i></a>
-    <a href="#"><i class="fa fa-search"></i></a>
-    <a href="#"><i class="fa fa-envelope"></i></a>
-    <a href="#"><i class="fa fa-globe"></i></a>
-    <a href="#"><i class="fa fa-trash"></i></a>
-   </div>
-   <script>
-    const buttons=document.querySelectorAll("a");
-    for(let i of buttons){
-        i.addEventListener("click",function(){
-            const active=document.querySelector(".active");
-            this.classList.add("active");
-            active.classList.remove("active")
-        })
-    }
-   </script>
-</body>
+  </head>
+  <body>
+    <section>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </section>
+    <nav class="icon-bar hide">
+      <a href="#" class="active"><i class="fa fa-home"></i></a>
+      <a href="#"><i class="fa fa-search"></i></a>
+      <a href="#"><i class="fa fa-envelope"></i></a>
+      <a href="#"><i class="fa fa-globe"></i></a>
+      <a href="#"><i class="fa fa-trash"></i></a>
+    </nav>
+    <script>
+      const buttons = document.querySelectorAll("a");
+      const hamburgerMenu=document.querySelector("section");
+      const menuBar=document.querySelector(".icon-bar");
+      for (let i of buttons) {
+        i.addEventListener("click", function () {
+          const active = document.querySelector(".active");
+          this.classList.add("active");
+          active.classList.remove("active");
+        });
+      }
+      hamburgerMenu.addEventListener("click",function(e){
+        this.classList.toggle("change")
+        menuBar.classList.toggle("hide")
+      })
+    </script>
+  </body>
 </html>
